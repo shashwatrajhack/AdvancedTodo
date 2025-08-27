@@ -91,8 +91,8 @@ function Home() {
   const startIndex = (currentPage - 1) * itemPerPage;
   const endIndex = startIndex + itemPerPage;
   const currentTodos = todo.slice(startIndex, endIndex);
-  if(todo.length && currentTodos.length === 0){
-    setCurrentPage(currentPage - 1)
+  if (todo.length && currentTodos.length === 0) {
+    setCurrentPage(currentPage - 1);
   }
   return (
     <div>
@@ -186,20 +186,22 @@ function Home() {
           </ul>
         </div>
 
-        {pageArr.length && <div className="pagination">
-          <a>&laquo;</a>
-          {pageArr.map((x, i) => (
-            <a
-              key={i}
-              className={currentPage === i + 1 ? "active" : ""}
-              onClick={()=>setCurrentPage(i + 1)}
-            >
-              {i + 1}
-            </a>
-          ))}
+        {pageArr.length > 0 && (
+          <div className="pagination">
+            <a>&laquo;</a>
+            {pageArr.map((x, i) => (
+              <a
+                key={i}
+                className={currentPage === i + 1 ? "active" : ""}
+                onClick={() => setCurrentPage(i + 1)}
+              >
+                {i + 1}
+              </a>
+            ))}
 
-          <a>&raquo;</a>
-        </div>}
+            <a>&raquo;</a>
+          </div>
+        )}
       </div>
     </div>
   );
