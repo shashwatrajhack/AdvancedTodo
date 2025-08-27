@@ -3,11 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://github.com/shashwatrajhack/AdvancedTodo",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite",git commit -m "first commit"
+
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "react": "^19.1.1",
