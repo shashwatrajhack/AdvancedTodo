@@ -36,7 +36,7 @@ function Home() {
 
       setTodo([...todo]);
     } 
-    //this will run if there is add
+    //this will run if there is add.
     else {
       todo.push({ name: inputValue, isChecked: false });
       setTodo([...todo]);
@@ -192,10 +192,8 @@ function Home() {
 
         {pageArr.length > 0 && (
           <div className="pagination">
-            
+            <a>&laquo;</a>
             {pageArr.map((x, i) => (
-              <div>
-              <a onClick={() => setCurrentPage(i + 1) }>&laquo;</a>
               <a
                 key={i}
                 className={currentPage === i + 1 ? "active" : ""}
@@ -203,12 +201,9 @@ function Home() {
               >
                 {i + 1}
               </a>
-              <a onClick={() => setCurrentPage(i - 1) }>&raquo;</a>
-
-              </div>
             ))}
 
-            
+            <a>&raquo;</a>
           </div>
         )}
       </div>
