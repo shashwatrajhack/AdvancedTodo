@@ -8,6 +8,7 @@ function Home() {
   const [itemPerPage, setItemPerPage] = useState(3);
   const [pageArr, setPageArr] = useState([]);
   const [triggerLocal, setTriggerLocal] = useState(true);
+
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
@@ -17,6 +18,7 @@ function Home() {
     }
     updatePage(data1);
   }, [itemPerPage, triggerLocal]);
+
   const updatePage = (data1) => {
     let arrLength = data1 ? data1.length : 0;
     let noOfPage = Math.ceil(arrLength / itemPerPage);
@@ -28,12 +30,14 @@ function Home() {
         return window.alert("already exist");
       }
     }
-
+  //this will run in case of update button
     if (toggle) {
       todo[idx].name = inputValue;
 
       setTodo([...todo]);
-    } else {
+    } 
+    //this will run if there is add
+    else {
       todo.push({ name: inputValue, isChecked: false });
       setTodo([...todo]);
     }
@@ -188,8 +192,10 @@ function Home() {
 
         {pageArr.length > 0 && (
           <div className="pagination">
-            <a>&laquo;</a>
+            
             {pageArr.map((x, i) => (
+              <div>
+              <a onClick={() => setCurrentPage(i + 1) }>&laquo;</a>
               <a
                 key={i}
                 className={currentPage === i + 1 ? "active" : ""}
@@ -197,9 +203,12 @@ function Home() {
               >
                 {i + 1}
               </a>
+              <a onClick={() => setCurrentPage(i - 1) }>&raquo;</a>
+
+              </div>
             ))}
 
-            <a>&raquo;</a>
+            
           </div>
         )}
       </div>
